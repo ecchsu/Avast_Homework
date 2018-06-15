@@ -1,0 +1,47 @@
+Automation environment summary:
+ - Appium 1.8.0
+ - Android Studio Emulator
+ - Python 3.6.5
+
+Environment Setting:
+1. Install Python, choose x64 or x86 based on your pc
+https://www.python.org/downloads/release/python-365/
+
+2. Add python to your system PATH
+> type "python" in cmd to check 
+
+3. Download and install JRE
+http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
+
+4. Download and install Android Studio
+https://developer.android.com/studio/
+
+5. In Android Studio, install sdk tools and Android API for android 5.0+
+
+6. Download and install Node.js
+https://nodejs.org/en/
+
+7. Download and install Appium
+https://github.com/appium/appium-desktop/releases/tag/v1.6.1
+
+8. Install Appium Doctor to check setting
+npm install -g appium-doctor
+
+9. Environment variables setting
+ANDROID_HOME	where android sdk installed on pc
+JAVA_HOME	where HRE installed on pc
+PATH	%ANDROID_HOME%\tools
+PATH	%ANDROID_HOME%\platform-tools
+PATH	%JAVA_HOME%\bin
+
+Android Studio Setting:
+1. Download tools which Android Studio suggests at first launch
+2. Launch SDK Manager, download the desired API and its Google Play store x86 package
+
+Test Setting:
+1. Change ．deviceName・ and ．platformVersion・ in scripts before execution
+2. Choose emulator which has build-in Google Play Store app, such as Nexus 5
+3. Due to low stability of Google Play Store app, please manually login before execute test
+4. The order of test execution is:
+	1. Test_Install_AvastApp.py
+	2. Test_Avast.py
