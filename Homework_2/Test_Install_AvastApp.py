@@ -10,6 +10,7 @@ class Homework(unittest.TestCase):
 	page_load_time = 5
 	run_func_time = 1200
 	screenshotDir = '%s/' % os.getcwd()
+	HOME_KEY = 3
 
 	def setUp(self):
 		desired_caps = {}
@@ -28,10 +29,10 @@ class Homework(unittest.TestCase):
 			1. Download Avast Antivirus 2108 from Google Play Store
 			2. After installation completes, launch app
 		'''
-		WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable((By.ID, 'com.android.vending:id/search_box_idle_text')))
+		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.ID, 'com.android.vending:id/search_box_idle_text')))
 		self.driver.find_element_by_id('com.android.vending:id/search_box_idle_text').click()
 		self.driver.find_element_by_id('com.android.vending:id/search_box_text_input').send_keys('avast antivirus'+'\n')
-		WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//android.widget.Button[@text="INSTALL"]')))
+		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.XPATH, '//android.widget.Button[@text="INSTALL"]')))
 		self.driver.find_element_by_xpath('//android.widget.Button[@text="INSTALL"]').click()
 		wait_time = 0
 		while True:
@@ -45,8 +46,7 @@ class Homework(unittest.TestCase):
 			else:
 				break
 
-		#launch app and setting
-		self.driver.press_keycode(3)
+		self.driver.press_keycode(self.HOME_KEY)
 		self.driver.find_element_by_id('com.google.android.apps.nexuslauncher:id/all_apps_handle').click()
 		self.driver.find_element_by_accessibility_id("Avast Mobile Security").click()
 		try: 

@@ -136,10 +136,10 @@ class Homework(unittest.TestCase):
 
 if __name__ == '__main__':
 	suite = unittest.TestSuite()
-	# suite.addTest(Homework('test_scan'))
-	# suite.addTest(Homework('test_appVersionNotEmpty'))
-	# suite.addTest(Homework('test_boostRam'))
-	# suite.addTest(Homework('test_cleanJunk'))
+	suite.addTest(Homework('test_scan'))
+	suite.addTest(Homework('test_appVersionNotEmpty'))
+	suite.addTest(Homework('test_boostRam'))
+	suite.addTest(Homework('test_cleanJunk'))
 	suite.addTest(Homework('test_scanWifi'))
 	runner = unittest.TextTestRunner(verbosity=2)
 	runner.run(suite)
