@@ -1,0 +1,7 @@
+Install HTMLReport
+pip install HTMLReport==1.5.0
+
+Report is saved at the directory where test is executed. 
+Report might be in simplied Chinese when launches, switch to English by clicking the icon at top-right corner.
+
+
