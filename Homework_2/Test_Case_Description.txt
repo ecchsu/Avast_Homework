@@ -1,0 +1,29 @@
+test_scan
+To test scan function can complete successfully 
+
+Step:				
+1. Launch app			
+2. Start scan 
+3. Wait for scan to finish
+
+Expected Result:
+1. App is launched
+2. Scan function starts without issue
+3. Scan function completes without issue
+4. UI shows scan result and a RESCAN button
+
+test_boostRam
+To test this function can kill all tasks without issue
+
+Step:				
+1. Launch app			
+2. Start boost RAM function 
+3. Wait for function to finish
+
+Expected Result:
+1. App is launched
+2. Boost RAM function starts without issue
+3. Boost RAM function completes without issue
+4. UI shows result
+
+   
