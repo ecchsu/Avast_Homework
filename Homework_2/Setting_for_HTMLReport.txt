@@ -1,4 +1,4 @@
-Install HTMLReport
+Install HTMLReport    **only support python 3.x**
 pip install HTMLReport==1.5.0
 
 Report is saved at the directory where test is executed. 
