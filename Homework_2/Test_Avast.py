@@ -7,6 +7,7 @@ import os
 import HTMLReport
 import time
 import base64
+from HTMLReport import AddImage
 
 class Homework(unittest.TestCase):
 
@@ -14,6 +15,8 @@ class Homework(unittest.TestCase):
 	run_func_time = 1200
 
 	HOME_KEY = 3
+
+	timestr = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
 
 	screenshotDir = '%s/' % os.getcwd()
 
@@ -43,6 +46,11 @@ class Homework(unittest.TestCase):
 	def tearDownClass(cls):
 		cls.driver.quit()
 
+	# def saveScreenshot(imageName):
+	# 	with open(imageName + '.png', 'rb') as f:
+ #    		image = base64.b64encode(f.read())
+ #    		AddImage(image)
+
 	def test_scan(self):
 		''' Step:
 			1. Launch Avast Antivirus 2018
@@ -58,10 +66,14 @@ class Homework(unittest.TestCase):
 		while True:
 			try: 
 				self.driver.find_element_by_xpath('//android.widget.Button[@text="RESCAN"]')
+				screenshot = self.driver.get_screenshot_as_base64()
+				with open("Avast Antivirus 2018.html", 'rb') as f:
+					image = base64.b64encode(f.read())
+					AddImage(image, self.timestr)
 			except:
 				wait_time += 1
 				if wait_time == self.run_func_time:
-					self.driver.save_screenshot(self.screenshotDir + 'test_scan.png')
+					# self.driver.save_screenshot(self.screenshotDir + 'test_scan.png')
 					raise Exception('Scan failed')
 			else:
 				break
@@ -161,13 +173,12 @@ class Homework(unittest.TestCase):
 
 if __name__ == '__main__':
 	suite = unittest.TestSuite()
-	# suite.addTest(Homework('test_scan'))
+	suite.addTest(Homework('test_scan'))
 	# suite.addTest(Homework('test_appVersionNotEmpty'))
-	suite.addTest(Homework('test_boostRam'))
+	# suite.addTest(Homework('test_boostRam'))
 	# suite.addTest(Homework('test_cleanJunk'))
 	# suite.addTest(Homework('test_scanWifi'))
-	timestr = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
-	runner = HTMLReport.TestRunner(report_file_name = 'Avast Antivirus 2018' + timestr,
+	runner = HTMLReport.TestRunner(report_file_name = 'Avast Antivirus 2018',
 									output_path ='Report',
 									description = 'App automation test for Avast Antivirus 2018 basic functions',
 									thread_count = 1,
