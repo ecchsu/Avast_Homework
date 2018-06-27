@@ -1,5 +1,5 @@
 test_scan
-To test scan function can complete successfully 
+To test scan function can complete successfully with result showing on UI 
 
 Step:				
 1. Launch app			
@@ -11,6 +11,8 @@ Expected Result:
 2. Scan function starts without issue
 3. Scan function completes without issue
 4. UI shows scan result and a RESCAN button
+
+
 
 test_boostRam
 To test this function can kill all tasks without issue
