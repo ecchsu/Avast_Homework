@@ -10,8 +10,8 @@ from HTMLReport import logger
 
 class Homework(unittest.TestCase):
 
-	page_load_time = 10
-	run_func_time = 1200
+	page_load_time = 50
+	run_func_time = 12000000
 
 	screenshotDir = '%s//report//' % os.getcwd()
 	timestr = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
@@ -43,7 +43,7 @@ class Homework(unittest.TestCase):
 		wait_time = 0
 		while True:
 			try: 
-				self.driver.find_element_by_xpath('//android.widget.Button[@text="RESCAN"]')
+				self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/ui_feed_header_title')
 				logger().info("Scan completed")
 				self.driver.save_screenshot(self.screenshotDir + 'test_scan %s.png' % self.timestr)
 			except:
@@ -90,7 +90,7 @@ class Homework(unittest.TestCase):
 		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.ID, 'com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue')))
 		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue').click()
 		logger().info("Entered main page")
-		self.driver.find_element_by_xpath('//android.widget.TextView[@text="BOOST RAM"]').click()
+		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/matrix_card_1').click()
 		logger().info("Boost RAM function started")
 		wait_time = 0
 		while True:
@@ -116,7 +116,7 @@ class Homework(unittest.TestCase):
 		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.ID, 'com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue')))
 		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue').click()
 		logger().info("Entered main page")
-		self.driver.find_element_by_xpath('//android.widget.TextView[@text="CLEAN JUNK"]').click()
+		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/matrix_card_2').click()
 		logger().info("Clicked Clean Junk button")
 		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/cleanup_permission_button').click()
 		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.ID, 'com.android.packageinstaller:id/permission_allow_button')))
@@ -145,7 +145,7 @@ class Homework(unittest.TestCase):
 		WebDriverWait(self.driver, self.page_load_time).until(EC.element_to_be_clickable((By.ID, 'com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue')))
 		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/btn_interstitial_remove_ads_continue').click()
 		logger().info("Entered main page")
-		self.driver.find_element_by_xpath('//android.widget.TextView[@text="SCAN WI-FI"]').click()
+		self.driver.find_element_by_id('com.avast.android.mobilesecurity:id/matrix_card_3').click()
 		logger().info("Started to scan Wi-Fi")
 		wait_time = 0
 		while True:
